@@ -3,7 +3,7 @@ import pesto from "../assets/sauces/pesto.png";
 import cacioPepe from "../assets/sauces/kachio_pepe.png";
 import alPomodoro from "../assets/sauces/al_pomidoro.png";
 import carbonara from "../assets/sauces/carbonara.png";
-import blueCheese from "../assets/dishes/lurji_yvelis_pasta.png";
+import blueCheese from "../assets/dishes/lurji kveli.png";
 import mushroomTruffle from "../assets/sauces/soko.png";
 import boloneze from "../assets/sauces/boloneze.png";
 import seaFood from "../assets/sauces/zgvis_produqtebis.png";
