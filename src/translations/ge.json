@@ -42,5 +42,15 @@
   "soko (2x)": "სოკო 2x",
   "caprese": "კაპრეზე",
   "salmon": "ორაგულის სალათი",
-  "fresh": "ფრეშ სალათი"
+  "fresh": "ფრეშ სალათი",
+  "coca_cola_classic_plastic" : "კოკა-კოლა კლასიკი პლასტმასი",
+  "coca_cola_classic_can" : "კოკა-კოლა კლასიკი ქილის",
+  "coca_cola_classic_glass" : "კოკა-კოლა კლასიკი შუშა",
+  "coca_cola_zero_plastic" : "კოკა-კოლა ზერო პლასტმასი",
+  "coca_cola_zero_coffee_can" : "კოკა-კოლა ზერო ყავის" ,
+  "fanta_tropiki_plastic" : "ფანტა ტროპიკი",
+  "fanta_orange_plastic": "ფანტა ფორთოხლის",
+  "schweppes_can" : "შვებსი",
+  "water_mta_plastic" : "მთის წყალი პლასტმასი",
+  "water_mta_glass" : "მთის წყალი შუშა"
 }

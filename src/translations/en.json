@@ -42,5 +42,15 @@
   "soko (2x)": "Mushroom 2x",
   "caprese": "Caprese",
   "salmon": "Salmon Salad",
-  "fresh": "Fresh Salad"
+  "fresh": "Fresh Salad",
+  "coca_cola_classic_plastic" : "Coca-Cola Classic Plastic",
+  "coca_cola_classic_can" : "Coca-Cola Classic Can",
+  "coca_cola_classic_glass" : "Coca Cola Classic Glass",
+  "coca_cola_zero_plastic" : "Coca Cola Zero Plastic",
+  "coca_cola_zero_coffee_can" : "Coca Cola Zero Coffee Can",
+  "fanta_tropiki_plastic" : "Fanta Tropic",
+  "fanta_orange_plastic" : "Fanta Orange",
+  "schweppes_can" : "Schweppes Can",
+  "water_mta_plastic" : "Water Mta Plastic",
+  "water_mta_glass" : "Water Mta Glass"
 }
