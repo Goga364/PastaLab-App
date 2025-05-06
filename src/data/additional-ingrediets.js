@@ -14,8 +14,8 @@ import mushroom from "../assets/ingredients/soko.png";
 
 const pastaIngredients = {
   olive: {
-    price: 1.0,
-    name: "ზეთის ხილი",
+    price: 1.45,
+    name: "zetis xili",
     productId: "05f09346-08da-4e35-9dc2-a219dffe1350",
     image: olives,
     combos: {
@@ -47,9 +47,9 @@ const pastaIngredients = {
     },
   },
   capers: {
-    name: "კაპერსი",
+    name: "kapersi",
     productId: "d27a2064-ab60-4536-a23a-c010200dcb54",
-    price: 1.5,
+    price: 1.45,
     image: capers,
     combos: {
       [pastaType.rigatoni.productId]: [
@@ -83,9 +83,9 @@ const pastaIngredients = {
     },
   },
   driedTomato: {
-    name: "პომიდვრის ჩირი",
+    name: "pomidvris chiri",
     productId: "871ddf19-03bb-4e49-8239-2632a9695cde",
-    price: 1.5,
+    price: 1.45,
     image: cherry,
     combos: {
       [pastaType.rigatoni.productId]: [pastaSauce.pesto.productId],
@@ -110,9 +110,9 @@ const pastaIngredients = {
     },
   },
   parmaHam: {
-    name: "პარმანჰემი",
+    name: "parmahemi",
     productId: "ba81e6ff-12f8-4fc8-ad87-f83b95ed3d31",
-    price: 7.0,
+    price: 6.45,
     image: parmaHam,
     combos: {
       [pastaType.rigatoni.productId]: [pastaSauce.pesto.productId],
@@ -122,9 +122,9 @@ const pastaIngredients = {
     },
   },
   stracciatella: {
-    name: "სტრაჩატელა",
+    name: "strachatela",
     productId: "a6e571e1-debb-43a2-8118-d016a3bd229d",
-    price: 4.5,
+    price: 5.45,
     image: stracciatella,
     combos: {
       [pastaType.rigatoni.productId]: [
@@ -146,9 +146,9 @@ const pastaIngredients = {
     },
   },
   parmesan: {
-    name: "პარმეზანი",
+    name: "parmazeni",
     productId: "56fd67e3-522c-4fde-a210-43226454c0f1",
-    price: 3.0,
+    price: 3.95,
     image: parmesan,
     combos: {
       [pastaType.rigatoni.productId]: [
@@ -177,9 +177,9 @@ const pastaIngredients = {
     },
   },
   roastedCherry: {
-    name: "შემწვარი ჩერი",
+    name: "shemtsvari cheri",
     productId: "5d9c0c1f-677e-471e-b7af-00e2a76a1f22",
-    price: 2.0,
+    price: 2.95,
     image: roastedCherry,
     combos: {
       [pastaType.rigatoni.productId]: [pastaSauce.pesto.productId],
@@ -189,9 +189,9 @@ const pastaIngredients = {
     },
   },
   basil: {
-    name: "ბაზილიკი",
+    name: "baziliki",
     productId: "20e20922-ceb3-48bd-8a7a-96d809754201",
-    price: 2.0,
+    price: 2.45,
     image: basil,
     combos: {
       [pastaType.rigatoni.productId]: [pastaSauce.cacioPepe.productId],
@@ -210,9 +210,9 @@ const pastaIngredients = {
     },
   },
   bacon: {
-    name: "ბეკონი",
+    name: "bekoni",
     productId: "81042a6d-e619-41d0-a7ad-2ee8c9ccb80b",
-    price: 6.0,
+    price: 6.45,
     image: bacon,
     combos: {
       [pastaType.rigatoni.productId]: [pastaSauce.cacioPepe.productId],
@@ -237,9 +237,9 @@ const pastaIngredients = {
     },
   },
   blueCheese: {
-    name: "ბლუ ჩიზი",
+    name: "bluchiz",
     productId: "ac1ed2f9-a7b0-4a86-98ff-40ee0e2dc0cb",
-    price: 3.5,
+    price: 3.95,
     image: parmesan,
     combos: {
       [pastaType.rigatoni.productId]: [pastaSauce.alPomodoro.productId],
@@ -249,9 +249,9 @@ const pastaIngredients = {
     },
   },
   kimchiSauce: {
-    name: "კიმჩის სოუსი",
+    name: "kimchis sousi",
     productId: "e0318de0-d2ca-4adb-b800-f3efe3b4b91b",
-    price: 12.0,
+    price: 5.45,
     image: kimchiSauce,
     combos: {
       [pastaType.tagliatelle.productId]: [pastaSauce.carbonara.productId],
@@ -259,9 +259,9 @@ const pastaIngredients = {
     },
   },
   pecorino: {
-    name: "პეკორინო",
+    name: "pekorino",
     productId: "d9b14f81-c23c-4855-9a6f-67341c0d8145",
-    price: 3.0,
+    price: 3.95,
     image: cherry,
     combos: {
       [pastaType.tagliatelle.productId]: [pastaSauce.carbonara.productId],
@@ -269,9 +269,9 @@ const pastaIngredients = {
     },
   },
   doubleMushroom: {
-    name: "სოკო (2x)",
+    name: "soko (2x)",
     productId: "2765ecea-873b-4381-a84a-43d5b251f56f",
-    price: 3.0,
+    price: 2.95,
     image: mushroom,
     combos: {
       [pastaType.penne.productId]: [pastaSauce.mushroomTruffle.productId],
