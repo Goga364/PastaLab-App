@@ -18,13 +18,13 @@ const pastaType = {
   },
   tagliatelle: {
     productId: "1bd8d931-3117-4203-824a-af6d6c1d079f",
-    name: "taliatele",
+    name: "tagliatelle",
     price: 4.0,
     image: taliatele,
   },
   spaghetti: {
     productId: "35937320-b513-44be-9d0f-f1b881de63b6",
-    name: "spageti",
+    name: "spaghetti",
     price: 4.0,
     image: spagetti,
   },

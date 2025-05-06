@@ -59,7 +59,7 @@ function App() {
       return (
         <>
           <button className="absolute left-5 top-5 bg-white w-6 h-6" onClick={prevStep}>
-            <FontAwesomeIcon icon={faArrowLeft} color="black" size="2xl" />
+            <FontAwesomeIcon icon={faArrowLeft} color="black" size="3x" />
           </button>
           <CustomPasta setCreatingCustom={setCreatingCustom} />
         </>
@@ -68,7 +68,7 @@ function App() {
     return (
       <>
         <button className="absolute left-5 top-5 bg-white w-6 h-6" onClick={prevStep}>
-          <FontAwesomeIcon icon={faArrowLeft} color="black" size="2xl" />
+          <FontAwesomeIcon icon={faArrowLeft} color="black" size="3x" />
         </button>
         <ChooseOrder setCreatingCustom={setCreatingCustom} />
       </>
@@ -90,7 +90,7 @@ function App() {
       <button onClick={enterFullScreen} className="absolute left-0 h-10 w-10" />
       <LanguageSwitcher />
       {renderContent()}
-      <Footer show={orderType && cart.length} handleSubmit={handleSubmit} />
+      <Footer show={orderType && cart.length && !creatingCustom} handleSubmit={handleSubmit} />
     </div>
   );
 }

@@ -55,13 +55,11 @@ const CustomPasta = ({ setCreatingCustom }) => {
       )}
       {selectedPastaSauce && (
         <div className="flex gap-10 text-2xl items-center">
-          <button
-            className="text-white bg-[#1C305E] px-10 py-5 rounded-[100px] text-2xl w-60"
-            onClick={handleAddToCart}
-          >
+          <button className="text-white bg-[#1C305E] px-4 py-2 rounded-[100px] text-2xl w-60" onClick={handleAddToCart}>
             Add to cart
           </button>
-          <h1>Total: {total ?? 0}</h1>
+
+          <h1 className="text-[#1C305E]">Total ₾{total.toFixed(2) ?? 0}</h1>
         </div>
       )}
     </div>

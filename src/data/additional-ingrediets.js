@@ -9,7 +9,6 @@ import parmesan from "../assets/ingredients/parmezani.png";
 import roastedCherry from "../assets/ingredients/mobrawuli_cheri.png";
 import basil from "../assets/ingredients/baziliki.png";
 import bacon from "../assets/ingredients/bacon.png";
-import kimchiSauce from "../assets/ingredients/kimchis_sousi.png";
 import mushroom from "../assets/ingredients/soko.png";
 
 const pastaIngredients = {
@@ -23,23 +22,29 @@ const pastaIngredients = {
         pastaSauce.pesto.productId,
         pastaSauce.cacioPepe.productId,
         pastaSauce.alPomodoro.productId,
+        pastaSauce.blueCheese.productId,
       ],
       [pastaType.penne.productId]: [
         pastaSauce.pesto.productId,
         pastaSauce.cacioPepe.productId,
         pastaSauce.alPomodoro.productId,
+        pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
       ],
       [pastaType.tagliatelle.productId]: [
         pastaSauce.pesto.productId,
+        pastaSauce.cacioPepe.productId,
         pastaSauce.alPomodoro.productId,
+        pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
         pastaSauce.bolognese.productId,
         pastaSauce.seafood.productId,
       ],
       [pastaType.spaghetti.productId]: [
         pastaSauce.pesto.productId,
+        pastaSauce.cacioPepe.productId,
         pastaSauce.alPomodoro.productId,
+        pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
         pastaSauce.bolognese.productId,
         pastaSauce.seafood.productId,
@@ -56,6 +61,7 @@ const pastaIngredients = {
         pastaSauce.pesto.productId,
         pastaSauce.cacioPepe.productId,
         pastaSauce.alPomodoro.productId,
+        pastaSauce.blueCheese.productId,
       ],
       [pastaType.penne.productId]: [
         pastaSauce.pesto.productId,
@@ -66,6 +72,7 @@ const pastaIngredients = {
       ],
       [pastaType.tagliatelle.productId]: [
         pastaSauce.pesto.productId,
+        pastaSauce.cacioPepe.productId,
         pastaSauce.alPomodoro.productId,
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
@@ -74,6 +81,7 @@ const pastaIngredients = {
       ],
       [pastaType.spaghetti.productId]: [
         pastaSauce.pesto.productId,
+        pastaSauce.cacioPepe.productId,
         pastaSauce.alPomodoro.productId,
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
@@ -88,10 +96,15 @@ const pastaIngredients = {
     price: 1.45,
     image: cherry,
     combos: {
-      [pastaType.rigatoni.productId]: [pastaSauce.pesto.productId],
+      [pastaType.rigatoni.productId]: [
+        pastaSauce.pesto.productId,
+        pastaSauce.carbonara.productId,
+        pastaSauce.blueCheese.productId,
+      ],
       [pastaType.penne.productId]: [
         pastaSauce.pesto.productId,
         pastaSauce.blueCheese.productId,
+        pastaSauce.carbonara.productId,
       ],
       [pastaType.tagliatelle.productId]: [
         pastaSauce.pesto.productId,
@@ -127,22 +140,10 @@ const pastaIngredients = {
     price: 5.45,
     image: stracciatella,
     combos: {
-      [pastaType.rigatoni.productId]: [
-        pastaSauce.pesto.productId,
-        pastaSauce.alPomodoro.productId,
-      ],
-      [pastaType.penne.productId]: [
-        pastaSauce.pesto.productId,
-        pastaSauce.alPomodoro,
-      ],
-      [pastaType.tagliatelle.productId]: [
-        pastaSauce.pesto.productId,
-        pastaSauce.alPomodoro.productId,
-      ],
-      [pastaType.spaghetti.productId]: [
-        pastaSauce.pesto.productId,
-        pastaSauce.alPomodoro.productId,
-      ],
+      [pastaType.rigatoni.productId]: [pastaSauce.pesto.productId, pastaSauce.alPomodoro.productId],
+      [pastaType.penne.productId]: [pastaSauce.pesto.productId, pastaSauce.alPomodoro],
+      [pastaType.tagliatelle.productId]: [pastaSauce.pesto.productId, pastaSauce.alPomodoro.productId],
+      [pastaType.spaghetti.productId]: [pastaSauce.pesto.productId, pastaSauce.alPomodoro.productId],
     },
   },
   parmesan: {
@@ -154,22 +155,24 @@ const pastaIngredients = {
       [pastaType.rigatoni.productId]: [
         pastaSauce.pesto.productId,
         pastaSauce.alPomodoro.productId,
+        pastaSauce.carbonara.productId,
       ],
       [pastaType.penne.productId]: [
         pastaSauce.pesto.productId,
-        pastaSauce.alPomodoro,
+        pastaSauce.alPomodoro.productId,
         pastaSauce.mushroomTruffle.productId,
+        pastaSauce.carbonara.productId,
       ],
       [pastaType.tagliatelle.productId]: [
         pastaSauce.pesto.productId,
-        pastaSauce.alPomodoro,
+        pastaSauce.alPomodoro.productId,
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.carbonara.productId,
         pastaSauce.bolognese.productId,
       ],
       [pastaType.spaghetti.productId]: [
         pastaSauce.pesto.productId,
-        pastaSauce.alPomodoro,
+        pastaSauce.alPomodoro.productId,
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.carbonara.productId,
         pastaSauce.bolognese.productId,
@@ -194,18 +197,25 @@ const pastaIngredients = {
     price: 2.45,
     image: basil,
     combos: {
-      [pastaType.rigatoni.productId]: [pastaSauce.cacioPepe.productId],
+      [pastaType.rigatoni.productId]: [
+        pastaSauce.cacioPepe.productId,
+        pastaSauce.blueCheese.productId,
+        pastaSauce.carbonara.productId,
+      ],
       [pastaType.penne.productId]: [
         pastaSauce.cacioPepe.productId,
         pastaSauce.blueCheese.productId,
+        pastaSauce.carbonara.productId,
       ],
       [pastaType.tagliatelle.productId]: [
         pastaSauce.cacioPepe.productId,
         pastaSauce.blueCheese.productId,
+        pastaSauce.carbonara.productId,
       ],
       [pastaType.spaghetti.productId]: [
         pastaSauce.cacioPepe.productId,
         pastaSauce.blueCheese.productId,
+        pastaSauce.carbonara.productId,
       ],
     },
   },
@@ -215,23 +225,27 @@ const pastaIngredients = {
     price: 6.45,
     image: bacon,
     combos: {
-      [pastaType.rigatoni.productId]: [pastaSauce.cacioPepe.productId],
-      [pastaType.penne.productId]: [
-        pastaSauce.cacioPepe.productId,
+      [pastaType.rigatoni.productId]: [
         pastaSauce.alPomodoro.productId,
+        pastaSauce.blueCheese.productId,
+        pastaSauce.carbonara.productId,
+      ],
+      [pastaType.penne.productId]: [
+        pastaSauce.alPomodoro.productId,
+        pastaSauce.carbonara.productId,
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
       ],
       [pastaType.tagliatelle.productId]: [
         pastaSauce.alPomodoro.productId,
-        pastaSauce.mushroomTruffle.productId,
         pastaSauce.carbonara.productId,
+        pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
       ],
       [pastaType.spaghetti.productId]: [
         pastaSauce.alPomodoro.productId,
-        pastaSauce.mushroomTruffle.productId,
         pastaSauce.carbonara.productId,
+        pastaSauce.mushroomTruffle.productId,
         pastaSauce.blueCheese.productId,
       ],
     },
@@ -248,22 +262,14 @@ const pastaIngredients = {
       [pastaType.spaghetti.productId]: [pastaSauce.alPomodoro.productId],
     },
   },
-  kimchiSauce: {
-    name: "kimchis sousi",
-    productId: "e0318de0-d2ca-4adb-b800-f3efe3b4b91b",
-    price: 5.45,
-    image: kimchiSauce,
-    combos: {
-      [pastaType.tagliatelle.productId]: [pastaSauce.carbonara.productId],
-      [pastaType.spaghetti.productId]: [pastaSauce.carbonara.productId],
-    },
-  },
   pecorino: {
     name: "pekorino",
     productId: "d9b14f81-c23c-4855-9a6f-67341c0d8145",
     price: 3.95,
     image: cherry,
     combos: {
+      [pastaType.rigatoni.productId]: [pastaSauce.carbonara.productId],
+      [pastaType.penne.productId]: [pastaSauce.carbonara.productId],
       [pastaType.tagliatelle.productId]: [pastaSauce.carbonara.productId],
       [pastaType.spaghetti.productId]: [pastaSauce.carbonara.productId],
     },
@@ -275,15 +281,8 @@ const pastaIngredients = {
     image: mushroom,
     combos: {
       [pastaType.penne.productId]: [pastaSauce.mushroomTruffle.productId],
-      [pastaType.tagliatelle.productId]: [
-        pastaSauce.mushroomTruffle.productId,
-        pastaSauce.seafood.productId,
-      ],
-
-      [pastaType.spaghetti.productId]: [
-        pastaSauce.mushroomTruffle.productId,
-        pastaSauce.seafood.productId,
-      ],
+      [pastaType.tagliatelle.productId]: [pastaSauce.mushroomTruffle.productId],
+      [pastaType.spaghetti.productId]: [pastaSauce.mushroomTruffle.productId],
     },
   },
 };

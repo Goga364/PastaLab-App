@@ -26,7 +26,12 @@ const pastaSauce = {
     name: "kachio pepe",
     price: 11.0,
     image: cacioPepe,
-    forPasta: [pastaType.rigatoni.productId, pastaType.penne.productId],
+    forPasta: [
+      pastaType.rigatoni.productId,
+      pastaType.penne.productId,
+      pastaType.tagliatelle.productId,
+      pastaType.spaghetti.productId,
+    ],
   },
   alPomodoro: {
     productId: "85bc1b75-13c5-4d2d-aa23-4c2d635ff159",
@@ -70,11 +75,7 @@ const pastaSauce = {
     name: "tirufelis sousi",
     price: 14.0,
     image: mushroomTruffle,
-    forPasta: [
-      pastaType.penne.productId,
-      pastaType.tagliatelle.productId,
-      pastaType.spaghetti.productId,
-    ],
+    forPasta: [pastaType.penne.productId, pastaType.tagliatelle.productId, pastaType.spaghetti.productId],
   },
   bolognese: {
     productId: "8d5998a8-834c-46a4-9c8c-0e30c6f76936",
