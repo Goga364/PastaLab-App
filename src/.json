@@ -1,0 +1,45 @@
+{
+  "createOrderSettings": {
+    "checkStopList": false,
+    "servicePrint": false,
+    "transportToFrontTimeout": 0
+  },
+  "order": {
+    "combos": [],
+    "externalData": [],
+    "guestCount": 1,
+    "guests": {
+      "count": 1
+    },
+    "items": [
+      {
+        "amount": 1,
+        "comment": "",
+        "modifiers": [
+          {
+            "amount": 1,
+            "price": 11.0,
+            "productId": "06040f59-9d1e-47c4-8621-922b21bbfa64"
+          },
+          {
+            "amount": 1,
+            "price": 1.0,
+            "productId": "05f09346-08da-4e35-9dc2-a219dffe1350"
+          },
+          {
+            "amount": 1,
+            "price": 1.5,
+            "productId": "d27a2064-ab60-4536-a23a-c010200dcb54"
+          }
+        ],
+        "price": 4.0,
+        "productId": "18df33ac-b1f3-4753-b1ca-ca04581870f9",
+        "type": "Product"
+      }
+    ],
+    "payments": [],
+    "tips": []
+  },
+  "organizationId": "aabf3292-a24b-4eff-bd37-65381880f8b3",
+  "terminalGroupId": "d5825ab1-4c05-c0bb-0196-8c970dd80066"
+}
