@@ -10,6 +10,7 @@ import roastedCherry from "../assets/ingredients/mobrawuli_cheri.png";
 import basil from "../assets/ingredients/baziliki.png";
 import bacon from "../assets/ingredients/bacon.png";
 import mushroom from "../assets/ingredients/soko.png";
+import nagebi from "../assets/ingredients/nagebi.png";
 
 const pastaIngredients = {
   olive: {
@@ -48,6 +49,20 @@ const pastaIngredients = {
         pastaSauce.blueCheese.productId,
         pastaSauce.bolognese.productId,
         pastaSauce.seafood.productId,
+      ],
+    },
+  },
+  nagebi: {
+    price: 2.45,
+    name: "nagebi",
+    productId: "7f84182b-ad22-49f7-99da-8ecfac1f1bc3",
+    image: nagebi,
+    combos: {
+      [pastaType.tagliatelle.productId]: [
+        pastaSauce.bolognese.productId,
+      ],
+      [pastaType.spaghetti.productId]: [
+        pastaSauce.bolognese.productId, 
       ],
     },
   },
