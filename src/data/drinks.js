@@ -1,14 +1,14 @@
 import coca_cola_classic_plastic from "../assets/drinks/coca_cola_classic_plastic.png";
-import coca_cola_classic_can from "../assets/drinks/coca_cola_classic_can.webp";
-import coca_cola_classic_glass from "../assets/drinks/coca_cola_classic_glass.jpg";
+import coca_cola_classic_can from "../assets/drinks/coca_cola_classic_can.png";
+import coca_cola_classic_glass from "../assets/drinks/coca_cola_classic_glass.png";
 import coca_cola_zero_plastic from "../assets/drinks/coca_cola_zero_plastic.png";
-import coca_cola_zero_coffee_can from "../assets/drinks/coca_cola_zero_coffee_can.jpg";
-import fanta_tropiki_plastic from "../assets/drinks/fanta_tropiki_plastic.jpg";
-import fanta_orange_plastic from "../assets/drinks/fanta_orange_plastic.jpg";
-import schweppes_can from "../assets/drinks/schweppes_can.jpg";
-import water_mta_plastic from "../assets/drinks/water_mta_plastic.jpg";
-import water_mta_glass from "../assets/drinks/water_mta_glass.jpg";
-import cappy_pulpy_orange from "../assets/drinks/cappy_pulpy_orange.jpg";
+import coca_cola_zero_coffee_can from "../assets/drinks/coca_cola_zero_coffee_can.png";
+import fanta_tropiki_plastic from "../assets/drinks/fanta_tropiki_plastic.png";
+import fanta_orange_plastic from "../assets/drinks/fanta_orange_plastic.png";
+import schweppes_can from "../assets/drinks/schweppes_can.png";
+import water_mta_plastic from "../assets/drinks/water_mta_plastic.png";
+import water_mta_glass from "../assets/drinks/water_mta_glass.png";
+import cappy_pulpy_orange from "../assets/drinks/cappy_pulpy_orange.png";
 
 const drinks = [
   {

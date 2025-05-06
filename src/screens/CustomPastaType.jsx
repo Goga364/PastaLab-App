@@ -15,7 +15,7 @@ const CustomPastaType = ({ value, setValue }) => {
           return (
             <div
               key={item}
-              className={`px-3 pb-3  h-91 w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
+              className={`px-3 pb-3  h-60 w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
                 isSelected ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
               }`}
               onClick={() => setValue({ productId: pasta.productId, price: pasta.price })}
@@ -28,9 +28,9 @@ const CustomPastaType = ({ value, setValue }) => {
               <img src={pasta.image} className="w-40 h-40 object-contain pt-2.5 shrink-0" />
               <div className="h-[100%] pt-3">
                 <h1 className="text-[18px] h-10">{t(item)}</h1>
-                <div className="mt-2 pb-4 text-sm text-[#808080]">
+                {/* <div className="mt-2 pb-4 text-sm text-[#808080]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-                </div>
+                </div> */}
                 <PriceTag price={pasta?.price} />
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 
 const Footer = ({ show, handleSubmit }) => {
   const { cart } = useContext(CartContext);
@@ -23,7 +23,7 @@ const Footer = ({ show, handleSubmit }) => {
     <>
       <AnimatePresence>
         {show && (
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
@@ -44,10 +44,10 @@ const Footer = ({ show, handleSubmit }) => {
               </button>
             </div>
 
-            <div className="text-white px-1 py-3 rounded-[100px] text-xl flex flex-row gap-5">
+            <button className="text-white px-1 py-3 rounded-[100px] text-xl flex flex-row gap-5 font-bold">
               Total ₾{sumWithInitial}
-            </div>
-          </motion.div>
+            </button>
+          </Motion.div>
         )}
       </AnimatePresence>
 

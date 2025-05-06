@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import PriceTag from "./PriceTag";
 import QuantityChanger from "./QuantityChanger";
 
-const ProductCard = ({ items, setCreatingCustom, title }) => {
+const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
   const { cart, setCart } = useContext(CartContext);
   const { t } = useTranslation();
   const setQuantity = (id, n) => {
@@ -49,7 +49,7 @@ const ProductCard = ({ items, setCreatingCustom, title }) => {
           return (
             <div
               key={product.productId}
-              className={`px-3 pb-3  h-91 w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
+              className={`px-3 pb-3  w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
                 quantity ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
               }`}
               onClick={() => handleClick(product)}
@@ -57,9 +57,11 @@ const ProductCard = ({ items, setCreatingCustom, title }) => {
               <img src={product.image} className="w-40 h-40 object-contain pt-2.5  shrink-0" />
               <div className="h-[100%] pt-3">
                 <h1 className="text-[18px] h-10">{t(product.name)}</h1>
-                <div className="mt-2 pb-4 text-sm text-[#808080]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-                </div>
+                {!hideDescription && (
+                  <div className="mt-2 pb-4 text-sm text-[#808080]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </div>
+                )}
                 <PriceTag price={product.price} />
                 <QuantityChanger setQuantity={setQuantity} currentQuantity={quantity} productId={product.productId} />
               </div>
