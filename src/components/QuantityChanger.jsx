@@ -1,7 +1,13 @@
 const QuantityChanger = ({ setQuantity, currentQuantity, productId }) => {
   if (!currentQuantity) return null;
   return (
-    <div className="bg-[#1C305E] w- text-md flex items-center rounded-2xl text-md w-25 m-auto justify-between px-3 py-1 text-white font-bold">
+    <div
+      className="bg-[#1C305E] text-md flex items-center rounded-2xl text-md w-25 m-auto justify-between px-3 py-1 text-white font-bold"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+    >
       <span
         onClick={(e) => {
           if (productId) {

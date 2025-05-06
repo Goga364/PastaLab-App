@@ -17,13 +17,11 @@ const CustomPasta = ({ setCreatingCustom }) => {
     selectedIngredients?.reduce((acc, item) => acc + item.price, 0);
 
   const handleAddToCart = () => {
-    const modifiers = [selectedPastaSauce, ...selectedIngredients].map(
-      (item) => ({
-        amount: 1,
-        price: item.price,
-        productId: item.productId,
-      })
-    );
+    const modifiers = [selectedPastaSauce, ...selectedIngredients].map((item) => ({
+      amount: 1,
+      price: item.price,
+      productId: item.productId,
+    }));
 
     setCart([
       ...cart,
@@ -43,16 +41,9 @@ const CustomPasta = ({ setCreatingCustom }) => {
 
   return (
     <div className="bg-white w-screen min-h-screen text-black p-15 gap-10 flex flex-col">
-      <CustomPastaType
-        value={selectedPastaType}
-        setValue={setSelectedPastaType}
-      />
+      <CustomPastaType value={selectedPastaType} setValue={setSelectedPastaType} />
       {selectedPastaType && (
-        <CustomPastaSauce
-          pastaType={selectedPastaType}
-          value={selectedPastaSauce}
-          setValue={setSelectedPastaSauce}
-        />
+        <CustomPastaSauce pastaType={selectedPastaType} value={selectedPastaSauce} setValue={setSelectedPastaSauce} />
       )}
       {selectedPastaSauce && (
         <CustomPastaIngredients

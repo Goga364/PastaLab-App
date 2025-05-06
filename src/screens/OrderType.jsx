@@ -15,16 +15,10 @@ const OrderType = ({ setOrderType }) => {
     <div className="bg-[#1C305E] w-full h-full flex justify-center flex-col items-center gap-28">
       <img src={logoImage} className=" max-w-[800px]" />
       <div className="flex gap-8 text-black text-2xl">
-        <button
-          className="bg-[#FBB14A] text-3xl w-[220px] h-[80px] "
-          onClick={() => setOrderType("dineIn")}
-        >
+        <button className="bg-[#FBB14A] text-3xl w-[220px] h-[80px] rounded-2xl" onClick={() => setOrderType("dineIn")}>
           {t("dineIn")}
         </button>
-        <button
-          className="bg-[#FBB14A] text-3xl  w-[220px] h-[80px]"
-          onClick={() => setOrderType("toGo")}
-        >
+        <button className="bg-[#FBB14A] text-3xl  w-[220px] h-[80px] rounded-2xl" onClick={() => setOrderType("toGo")}>
           {t("takeaway")}
         </button>
       </div>
