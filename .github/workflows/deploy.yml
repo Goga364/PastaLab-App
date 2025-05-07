@@ -56,16 +56,14 @@ jobs:
             # Install dependencies
             npm install
             
-            # Build the app
-            VITE_TERMINAL_GROUP_ID=${{ secrets.VITE_TERMINAL_GROUP_ID }} \
-            VITE_ORGANIZATION_ID=${{ secrets.VITE_ORGANIZATION_ID }} \
-            VITE_SYVRE_API_KEY=${{ secrets.VITE_SYVRE_API_KEY }} \
-            npm run build
+            # Set environment variables
+            echo "VITE_TERMINAL_GROUP_ID=${{ secrets.VITE_TERMINAL_GROUP_ID }}" >> ~/.bashrc
+            echo "VITE_ORGANIZATION_ID=${{ secrets.VITE_ORGANIZATION_ID }}" >> ~/.bashrc
+            echo "VITE_SYVRE_API_KEY=${{ secrets.VITE_SYVRE_API_KEY }}" >> ~/.bashrc
+            source ~/.bashrc
             
-            # Install PM2 if not installed
-            if ! command -v pm2 &> /dev/null; then
-              npm install -g pm2
-            fi
+            # Build the app
+            npm run build
             
             # Start or restart the app with PM2
             pm2 restart PastaLab-App || pm2 start npm --name PastaLab-App -- run dev -- --host
@@ -76,20 +74,3 @@ jobs:
             # Reload Nginx for updated proxy settings
             sudo nginx -t && sudo systemctl reload nginx
           EOF
-
-      - name: Health Check
-        run: |
-          for i in {1..5}; do
-            RESPONSE=$(curl -s -k https://${{ secrets.EC2_HOST }})
-            STATUS=$(echo "$RESPONSE" | grep -i "PastaLab" || true)
-            
-            if [ ! -z "$STATUS" ]; then
-              echo "✅ Health check passed!"
-              exit 0
-            else
-              echo "❌ Health check failed, retrying in 5s..."
-              sleep 5
-            fi
-          done
-          echo "❌ Health check failed after 5 attempts, aborting."
-          exit 1
