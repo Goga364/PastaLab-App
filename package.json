@@ -22,7 +22,8 @@
     "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-i18next": "^15.5.1"
+    "react-i18next": "^15.5.1",
+    "react-intersection-observer": "^9.16.0"
   },
   "prettier": {
     "printWidth": 120

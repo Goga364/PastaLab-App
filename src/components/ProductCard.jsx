@@ -3,6 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { useTranslation } from "react-i18next";
 import PriceTag from "./PriceTag";
 import QuantityChanger from "./QuantityChanger";
+import AnimationWrapper from "./AnimationWrapper";
 
 const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
   const { cart, setCart } = useContext(CartContext);
@@ -47,25 +48,27 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
             quantity = cart.find((item) => item.productId === product.productId)?.amount;
           }
           return (
-            <div
-              key={product.productId}
-              className={`px-3 pb-3  w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
-                quantity ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
-              }`}
-              onClick={() => handleClick(product)}
-            >
-              <img src={product.image} className="w-40 h-40 object-contain pt-2.5  shrink-0" />
-              <div className="h-[100%] pt-3">
-                <h1 className="text-[18px] h-10">{t(product.name)}</h1>
-                {!hideDescription && (
-                  <div className="mt-2 pb-4 text-sm text-[#808080]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-                  </div>
-                )}
-                <PriceTag price={product.price} />
-                <QuantityChanger setQuantity={setQuantity} currentQuantity={quantity} productId={product.productId} />
+            <AnimationWrapper key={product.productId}>
+              <div
+                className={`px-3 pb-3  w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
+                  quantity ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
+                }`}
+                onClick={() => handleClick(product)}
+              >
+                <img src={product.image} className="w-40 h-40 object-contain pt-2.5  shrink-0" />
+                <div className="h-[100%] pt-3">
+                  <h1 className="text-[18px] h-10">{t(product.name)}</h1>
+                  {!hideDescription && (
+                    <div className="mt-2 pb-4 text-sm text-[#808080]">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore.
+                    </div>
+                  )}
+                  <PriceTag price={product.price} />
+                  <QuantityChanger setQuantity={setQuantity} currentQuantity={quantity} productId={product.productId} />
+                </div>
               </div>
-            </div>
+            </AnimationWrapper>
           );
         })}
       </div>
