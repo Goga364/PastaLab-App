@@ -62,11 +62,16 @@ jobs:
             VITE_SYVRE_API_KEY=${{ secrets.VITE_SYVRE_API_KEY }} \
             npm run build
             
-            # Clean old files
-            sudo rm -rf /var/www/html/*
+            # Install PM2 if not installed
+            if ! command -v pm2 &> /dev/null; then
+              npm install -g pm2
+            fi
             
-            # Copy the new build
-            sudo cp -r dist/* /var/www/html/
+            # Start or restart the app with PM2
+            pm2 restart PastaLab-App || pm2 start npm --name PastaLab-App -- run dev -- --host
+            
+            # Save the PM2 process list for auto-restart on reboot
+            pm2 save
             
             # Reload Nginx for updated proxy settings
             sudo nginx -t && sudo systemctl reload nginx
