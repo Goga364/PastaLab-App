@@ -2,6 +2,7 @@ import tickAnimation from "../assets/animations/tickAnimation.json";
 import Lottie from "lottie-react";
 import PriceTag from "../components/PriceTag";
 import { useTranslation } from "react-i18next";
+import AnimationWrapper from "../components/AnimationWrapper";
 
 const CustomPastaSauce = ({ options, value, setValue }) => {
   const { t } = useTranslation();
@@ -12,27 +13,28 @@ const CustomPastaSauce = ({ options, value, setValue }) => {
         {options.map((sauce) => {
           const isSelected = value?.productId === sauce.productId;
           return (
-            <div
-              key={sauce.productId}
-              className={`px-3 pb-3  h-91 w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
-                isSelected ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
-              }`}
-              onClick={() => setValue({ productId: sauce.productId, price: sauce.price })}
-            >
-              {isSelected && (
-                <div className="w-[30px] h-[30px] absolute bottom-2 left-1/2 -translate-x-1/2">
-                  <Lottie animationData={tickAnimation} loop={false} />
+            <AnimationWrapper key={sauce.productId}>
+              <div
+                className={`px-3 pb-3  h-91 w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
+                  isSelected ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
+                }`}
+                onClick={() => setValue({ productId: sauce.productId, price: sauce.price })}
+              >
+                {isSelected && (
+                  <div className="w-[30px] h-[30px] absolute bottom-2 left-1/2 -translate-x-1/2">
+                    <Lottie animationData={tickAnimation} loop={false} />
+                  </div>
+                )}
+                <img src={sauce.image} className="w-40 h-40 object-contain pt-2.5 shrink-0" />
+                <div className="h-[100%] pt-3">
+                  <h1 className="text-[18px] h-10">{t(sauce.name)}</h1>
+                  <div className="mt-2 pb-4 text-sm text-[#808080]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </div>
+                  <PriceTag price={sauce?.price} />
                 </div>
-              )}
-              <img src={sauce.image} className="w-40 h-40 object-contain pt-2.5 shrink-0" />
-              <div className="h-[100%] pt-3">
-                <h1 className="text-[18px] h-10">{t(sauce.name)}</h1>
-                <div className="mt-2 pb-4 text-sm text-[#808080]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-                </div>
-                <PriceTag price={sauce?.price} />
               </div>
-            </div>
+            </AnimationWrapper>
           );
         })}
       </div>
