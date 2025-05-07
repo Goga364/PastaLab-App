@@ -28,7 +28,7 @@ const OrderType = ({ setOrderType }) => {
       >
         <div className="flex gap-8 text-[#1C305E] text-2xl">
           <button className="bg-[#FBB14A] text-3xl px-10 h-[80px] rounded-2xl" onClick={() => setOrderType("dineIn")}>
-            {t("startOrder")}
+            test
           </button>
         </div>
       </Motion.div>
