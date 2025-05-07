@@ -1,10 +1,9 @@
-import pastaIngredients from "../data/additional-ingrediets";
 import Lottie from "lottie-react";
 import tickAnimation from "../assets/animations/tickAnimation.json";
 import PriceTag from "../components/PriceTag";
 import { useTranslation } from "react-i18next";
 
-const CustomPastaIngredients = ({ pastaType, pastaSauce, value, setValue }) => {
+const CustomPastaIngredients = ({ options, value, setValue }) => {
   const { t } = useTranslation();
   const handleClickIngredient = (ingredient) => {
     if (value.find((item) => item.productId == ingredient.productId)) {
@@ -17,16 +16,11 @@ const CustomPastaIngredients = ({ pastaType, pastaSauce, value, setValue }) => {
     <div className="flex gap-10 flex-col">
       <h1 className="py-4 text-start text-5xl">{t("additionalIngredients")}</h1>
       <div className="flex flex-row flex-wrap gap-10">
-        {Object.keys(pastaIngredients).map((item) => {
-          const ingredient = pastaIngredients[item];
+        {options.map((ingredient) => {
           const isSelected = value.find((item) => item.productId === ingredient.productId);
-
-          if (!ingredient.combos?.[pastaType.productId]?.includes(pastaSauce.productId)) {
-            return null;
-          }
           return (
             <div
-              key={item}
+              key={ingredient.productId}
               className={`px-3 pb-3  h-60 w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
                 isSelected ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
               }`}

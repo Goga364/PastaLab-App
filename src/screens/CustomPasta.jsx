@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import CustomPastaType from "./CustomPastaType";
 import CustomPastaSauce from "./CustomPastaSauce";
 import CustomPastaIngredients from "./CustomPastaIngredients";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import pastaSauce from "../data/sauce";
+import pastaIngredients from "../data/additional-ingrediets";
 const CustomPasta = ({ setCreatingCustom }) => {
   const [selectedPastaType, setSelectedPastaType] = useState();
   const [selectedPastaSauce, setSelectedPastaSauce] = useState();
@@ -22,14 +24,13 @@ const CustomPasta = ({ setCreatingCustom }) => {
       price: item.price,
       productId: item.productId,
     }));
-
     setCart([
       ...cart,
       {
         amount: 1,
         comment: "",
         modifiers: modifiers,
-        price: 4.0,
+        price: selectedPastaType.price,
         productId: selectedPastaType.productId,
         type: "Product",
         custom: true,
@@ -39,16 +40,46 @@ const CustomPasta = ({ setCreatingCustom }) => {
     setCreatingCustom(false);
   };
 
+  const filteredSauces = useMemo(
+    () =>
+      Object.keys(pastaSauce)
+        .filter((item) => pastaSauce[item].forPasta?.includes(selectedPastaType?.productId))
+        .map((item) => pastaSauce[item]),
+    [selectedPastaType]
+  );
+
+  const filteredIngredients = useMemo(
+    () =>
+      Object.keys(pastaIngredients)
+        .filter((item) =>
+          pastaIngredients[item].combos?.[selectedPastaType?.productId]?.includes(selectedPastaSauce?.productId)
+        )
+        .map((item) => pastaIngredients[item]),
+    [selectedPastaType, selectedPastaSauce]
+  );
+
+  useEffect(() => {
+    // Clear pasta sauce state if selected pasta type (changed) does not have that sauce option
+    setSelectedPastaSauce((prev) => {
+      const shouldClear = !filteredSauces.find(({ productId }) => productId === selectedPastaSauce?.productId);
+      return shouldClear ? null : prev;
+    });
+    setSelectedIngredients((prev) => {
+      return prev.filter((selectedIngredient) =>
+        filteredIngredients.some((ingredient) => ingredient.productId === selectedIngredient.productId)
+      );
+    });
+  }, [selectedPastaType, selectedPastaSauce, filteredSauces, filteredIngredients]);
+
   return (
     <div className="bg-white w-screen min-h-screen text-black p-15 gap-10 flex flex-col">
       <CustomPastaType value={selectedPastaType} setValue={setSelectedPastaType} />
       {selectedPastaType && (
-        <CustomPastaSauce pastaType={selectedPastaType} value={selectedPastaSauce} setValue={setSelectedPastaSauce} />
+        <CustomPastaSauce options={filteredSauces} value={selectedPastaSauce} setValue={setSelectedPastaSauce} />
       )}
       {selectedPastaSauce && (
         <CustomPastaIngredients
-          pastaType={selectedPastaType}
-          pastaSauce={selectedPastaSauce}
+          options={filteredIngredients}
           value={selectedIngredients}
           setValue={setSelectedIngredients}
         />
