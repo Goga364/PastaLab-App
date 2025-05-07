@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const baseURL =
-  "/proxy/api/1";
+const baseURL = "/proxy/api/1";
 
 const api = axios.create({ baseURL });
 
@@ -10,7 +9,7 @@ let token = null;
 async function fetchToken() {
   try {
     const response = await axios.post(`${baseURL}/access_token`, {
-      apiLogin: "5da1f78c0df744f3ababc3930953b4bc",
+      apiLogin: import.meta.env.VITE_SYVRE_API_KEY,
     });
     token = response.data.token;
     return token;
@@ -37,11 +36,7 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (
-      error.response &&
-      error.response.status === 401 &&
-      !originalRequest._retry
-    ) {
+    if (error.response && error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       token = await fetchToken();
       originalRequest.headers["Authorization"] = `Bearer ${token}`;

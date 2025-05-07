@@ -4,7 +4,6 @@ const organizationId = import.meta.env.VITE_ORGANIZATION_ID;
 const terminalGroupId = import.meta.env.VITE_TERMINAL_GROUP_ID;
 
 const handleOrder = async (product) => {
-  console.log(terminalGroupId);
   try {
     const res = api.post("/order/create", {
       createOrderSettings: {
