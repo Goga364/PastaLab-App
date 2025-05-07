@@ -60,17 +60,18 @@ jobs:
             # Install dependencies
             npm install
             
-            # Copy .env template and replace placeholders
-            cp .env.template .env
+            # Copy .env.template to .env if it doesn't exist
+            if [ ! -f ".env" ]; then
+              cp .env.template .env
+            fi
+            
+            # Replace placeholders in .env
             sed -i "s|__VITE_TERMINAL_GROUP_ID__|${VITE_TERMINAL_GROUP_ID}|g" .env
             sed -i "s|__VITE_ORGANIZATION_ID__|${VITE_ORGANIZATION_ID}|g" .env
             sed -i "s|__VITE_SYVRE_API_KEY__|${VITE_SYVRE_API_KEY}|g" .env
             
-            # Build the app with environment variables
-            npm run build
-            
             # Start or restart the app with PM2
-            pm2 start ecosystem.config.cjs --update-env
+            pm2 start ecosystem.config.cjs --update-env || pm2 restart ecosystem.config.cjs --update-env
             pm2 save
             
             # Reload Nginx for updated proxy settings
