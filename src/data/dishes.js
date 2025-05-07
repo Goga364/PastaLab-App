@@ -9,6 +9,7 @@ import mushroomTruffle from "../assets/dishes/sokos_pasta.png";
 import blueCheese from "../assets/dishes/lurji_yvelis_pasta.png";
 import niokiPesto from "../assets/dishes/niokis_pesto.png";
 import cacioPepe from "../assets/dishes/kachio_pepe.png";
+import karbonara_kimchis_sousit from "../assets/dishes/karbonara_kimchis_sousit.png";
 
 const dishes = [
   {
@@ -42,6 +43,14 @@ const dishes = [
     price: 26.85,
     image: carbonara,
   },
+
+  // {
+  //   productId: "",
+  //   name: "karbonara kimchis sousit",
+  //   price: 20.90,
+  //   image: karbonara_kimchis_sousit,
+  // },
+
   {
     productId: "b36a7f74-c08c-492a-8e59-db2eb960085a",
     name: "zgvis pasta",
@@ -78,6 +87,8 @@ const dishes = [
     price: 20.90,
     image: cacioPepe,
   },
+
+
 ];
 
 export default dishes;
