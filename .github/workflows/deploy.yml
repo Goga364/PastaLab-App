@@ -46,6 +46,10 @@ jobs:
           ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
       - name: SSH into EC2 and deploy
+        env:
+          VITE_TERMINAL_GROUP_ID: ${{ secrets.VITE_TERMINAL_GROUP_ID }}
+          VITE_ORGANIZATION_ID: ${{ secrets.VITE_ORGANIZATION_ID }}
+          VITE_SYVRE_API_KEY: ${{ secrets.VITE_SYVRE_API_KEY }}
         run: |
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             cd /home/ubuntu/app/PastaLab-App
@@ -56,23 +60,14 @@ jobs:
             # Install dependencies
             npm install
             
-            # Update ecosystem file with secrets
-            cat > ecosystem.config.cjs <<EOL
-module.exports = {
-  apps: [
-    {
-      name: "PastaLab-App",
-      script: "npm",
-      args: "run dev -- --host",
-      env: {
-        VITE_TERMINAL_GROUP_ID: "${{ secrets.VITE_TERMINAL_GROUP_ID }}",
-        VITE_ORGANIZATION_ID: "${{ secrets.VITE_ORGANIZATION_ID }}",
-        VITE_SYVRE_API_KEY: "${{ secrets.VITE_SYVRE_API_KEY }}"
-      }
-    }
-  ]
-};
-EOL
+            # Copy .env template and replace placeholders
+            cp .env.template .env
+            sed -i "s|__VITE_TERMINAL_GROUP_ID__|${VITE_TERMINAL_GROUP_ID}|g" .env
+            sed -i "s|__VITE_ORGANIZATION_ID__|${VITE_ORGANIZATION_ID}|g" .env
+            sed -i "s|__VITE_SYVRE_API_KEY__|${VITE_SYVRE_API_KEY}|g" .env
+            
+            # Build the app with environment variables
+            npm run build
             
             # Start or restart the app with PM2
             pm2 start ecosystem.config.cjs --update-env
