@@ -80,7 +80,7 @@ jobs:
       - name: Health Check
         run: |
           for i in {1..5}; do
-            RESPONSE=$(curl -s https://${{ secrets.EC2_HOST }})
+            RESPONSE=$(curl -s -k https://${{ secrets.EC2_HOST }})
             STATUS=$(echo "$RESPONSE" | grep -i "PastaLab" || true)
             
             if [ ! -z "$STATUS" ]; then
