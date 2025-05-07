@@ -25,6 +25,10 @@ jobs:
         run: npm install
 
       - name: Build app
+        env:
+          VITE_TERMINAL_GROUP_ID: ${{ secrets.VITE_TERMINAL_GROUP_ID }}
+          VITE_ORGANIZATION_ID: ${{ secrets.VITE_ORGANIZATION_ID }}
+          VITE_SYVRE_API_KEY: ${{ secrets.VITE_SYVRE_API_KEY }}
         run: npm run build
 
   deploy:
@@ -53,6 +57,9 @@ jobs:
             npm install
             
             # Build the app
+            VITE_TERMINAL_GROUP_ID=${{ secrets.VITE_TERMINAL_GROUP_ID }} \
+            VITE_ORGANIZATION_ID=${{ secrets.VITE_ORGANIZATION_ID }} \
+            VITE_SYVRE_API_KEY=${{ secrets.VITE_SYVRE_API_KEY }} \
             npm run build
             
             # Clean old files
