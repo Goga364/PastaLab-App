@@ -2,6 +2,8 @@
   "dineIn": "ადგილზე",
   "takeaway": "წასაღებად",
   "chooseDish": "შეარჩიე სასურველი პასტა",
+  "chooseSalad": "შეარჩიე სალათი",
+  "chooseDrink": "შეარჩიე სასმელი",
   "nioki": "ნიოკი ქათმით და კიმჩით",
   "shenipasta": "შექმენი შენი პასტა",
   "startOrder": "შეკვეთის დაწყება",
@@ -28,7 +30,7 @@
   "tirufelis sousi": "ტრიუფელის სოუსი",
   "boloneze sousi": "ბოლონეზე",
   "zgvisproduktebi": "ზღვის პროდუქტები",
-  "karbonara kimchis sousit" : "კარბონარა კიმჩის სოუსით",
+  "karbonara kimchis sousit": "კარბონარა კიმჩის სოუსით",
   "zetis xili": "ზეთის ხილი",
   "kapersi": "კაპერსი",
   "pomidvris chiri": "პომიდვრის ჩირი",
@@ -56,5 +58,5 @@
   "water_mta_plastic": "მთის წყალი პლასტმასი",
   "water_mta_glass": "მთის წყალი შუშა",
   "cappy_pulpy_orange": "კაპი პალპი",
-  "nagebi" : "ნაღები"
+  "nagebi": "ნაღები"
 }

@@ -15,8 +15,13 @@ const ChooseOrder = ({ setCreatingCustom }) => {
   return (
     <div className="bg-white w-screen min-h-screen text-black p-15 flex flex-col gap-20">
       <ProductCard items={dishes} setCreatingCustom={setCreatingCustom} title={t("chooseDish")} />
-      <ProductCard items={salads} setCreatingCustom={setCreatingCustom} title={"Choose Dish"} />
-      <ProductCard items={drinks} setCreatingCustom={setCreatingCustom} title={"Choose Drink"} hideDescription={true} />
+      <ProductCard items={salads} setCreatingCustom={setCreatingCustom} title={t("chooseSalad")} />
+      <ProductCard
+        items={drinks}
+        setCreatingCustom={setCreatingCustom}
+        title={t("chooseDrink")}
+        hideDescription={true}
+      />
     </div>
   );
 };
