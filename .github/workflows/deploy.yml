@@ -76,3 +76,20 @@ jobs:
             # Reload Nginx for updated proxy settings
             sudo nginx -t && sudo systemctl reload nginx
           EOF
+
+      - name: Health Check
+        run: |
+          for i in {1..5}; do
+            RESPONSE=$(curl -s https://${{ secrets.EC2_HOST }})
+            STATUS=$(echo "$RESPONSE" | grep -i "PastaLab" || true)
+            
+            if [ ! -z "$STATUS" ]; then
+              echo "✅ Health check passed!"
+              exit 0
+            else
+              echo "❌ Health check failed, retrying in 5s..."
+              sleep 5
+            fi
+          done
+          echo "❌ Health check failed after 5 attempts, aborting."
+          exit 1
