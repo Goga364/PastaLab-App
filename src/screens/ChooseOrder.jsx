@@ -12,6 +12,9 @@ const ChooseOrder = ({ setCreatingCustom }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const key = import.meta.env.VITE_SYVRE_API_KEY;
+  console.log("key", key);
+
   return (
     <div className="bg-white w-screen min-h-screen text-black p-15 flex flex-col gap-20">
       <ProductCard items={dishes} setCreatingCustom={setCreatingCustom} title={t("chooseDish")} />
