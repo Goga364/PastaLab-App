@@ -9,7 +9,7 @@ let token = null;
 async function fetchToken() {
   try {
     const response = await axios.post(`${baseURL}/access_token`, {
-      apiLogin: import.meta.env.VITE_SYVRE_API_KEY,
+      apiLogin: "5da1f78c0df744f3ababc3930953b4bc",
     });
     token = response.data.token;
     return token;

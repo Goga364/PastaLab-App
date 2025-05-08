@@ -1,7 +1,7 @@
 import api from "../api";
 
-const organizationId = import.meta.env.VITE_ORGANIZATION_ID;
-const terminalGroupId = import.meta.env.VITE_TERMINAL_GROUP_ID;
+const organizationId = "aabf3292-a24b-4eff-bd37-65381880f8b3";
+const terminalGroupId = "d5825ab1-4c05-c0bb-0196-8c970dd80066";
 
 const handleOrder = async (product) => {
   try {
