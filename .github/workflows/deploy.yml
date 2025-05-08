@@ -22,12 +22,8 @@ jobs:
           ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
       - name: SSH into EC2 and deploy
-        env:
-          VITE_TERMINAL_GROUP_ID: ${{ secrets.VITE_TERMINAL_GROUP_ID }}
-          VITE_ORGANIZATION_ID: ${{ secrets.VITE_ORGANIZATION_ID }}
-          VITE_SYVRE_API_KEY: ${{ secrets.VITE_SYVRE_API_KEY }}
         run: |
-          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << EOF
             cd /home/ubuntu/app/PastaLab-App
             
             # Pull the latest code
@@ -52,6 +48,15 @@ jobs:
             # Start or restart the app with PM2
             pm2 start ecosystem.config.cjs --update-env || pm2 restart ecosystem.config.cjs --update-env
             pm2 save
+            
+            # Reload Nginx for updated proxy settings
+            sudo nginx -t && sudo systemctl reload nginx
+          EOF
+        env:
+          VITE_TERMINAL_GROUP_ID: ${{ secrets.VITE_TERMINAL_GROUP_ID }}
+          VITE_ORGANIZATION_ID: ${{ secrets.VITE_ORGANIZATION_ID }}
+          VITE_SYVRE_API_KEY: ${{ secrets.VITE_SYVRE_API_KEY }}
+
             
             # Reload Nginx for updated proxy settings
             sudo nginx -t && sudo systemctl reload nginx
