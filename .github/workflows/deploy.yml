@@ -46,6 +46,9 @@ jobs:
             sed -i "s|__VITE_ORGANIZATION_ID__|${VITE_ORGANIZATION_ID}|g" .env
             sed -i "s|__VITE_SYVRE_API_KEY__|${VITE_SYVRE_API_KEY}|g" .env
             
+            # Show the .env file for debugging (REMOVE THIS AFTER TESTING)
+            cat .env
+            
             # Start or restart the app with PM2
             pm2 start ecosystem.config.cjs --update-env || pm2 restart ecosystem.config.cjs --update-env
             pm2 save
