@@ -7,7 +7,7 @@ import AnimationWrapper from "./AnimationWrapper";
 
 const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
   const { cart, setCart } = useContext(CartContext);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const setQuantity = (id, n) => {
     if (n <= 0) {
       setCart((prev) => prev.filter((item) => item.productId !== id));
@@ -47,6 +47,9 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
           } else {
             quantity = cart.find((item) => item.productId === product.productId)?.amount;
           }
+          const description = i18n.exists(`${product.name}-description`)
+            ? t(`${product.name}-description`)
+            : "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
           return (
             <AnimationWrapper key={product.productId}>
               <div
@@ -58,12 +61,7 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
                 <img src={product.image} className="w-40 h-40 object-contain pt-2.5  shrink-0" />
                 <div className="h-[100%] pt-3">
                   <h1 className="text-[18px] h-10">{t(product.name)}</h1>
-                  {!hideDescription && (
-                    <div className="mt-2 pb-4 text-sm text-[#808080]">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore.
-                    </div>
-                  )}
+                  {!hideDescription && <div className="mt-2 pb-4 text-sm text-[#808080] h-18">{description}</div>}
                   <PriceTag price={product.price} />
                   <QuantityChanger setQuantity={setQuantity} currentQuantity={quantity} productId={product.productId} />
                 </div>
