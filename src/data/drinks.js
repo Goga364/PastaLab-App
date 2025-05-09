@@ -14,7 +14,7 @@ const drinks = [
   {
     productId: "38a28a2c-378e-4d3b-b1c2-b21ed68bec73",
     name: "coca_cola_classic_plastic",
-    price: 2.5,
+    price: 3.0,
     image: coca_cola_classic_plastic,
   },
   {
@@ -26,19 +26,19 @@ const drinks = [
   {
     productId: "e20cdd0d-42e9-459f-93e8-f2c48f00edab",
     name: "coca_cola_classic_glass",
-    price: 2.5,
+    price: 3.0,
     image: coca_cola_classic_glass,
   },
   {
     productId: "47f534a8-b939-4131-a99f-5695192bfa1a",
     name: "coca_cola_zero_plastic",
-    price: 2.5,
+    price: 3.0,
     image: coca_cola_zero_plastic,
   },
   {
     productId: "78804061-58dd-4ba9-9d35-e466fbd9916c",
     name: "coca_cola_zero_coffee_can",
-    price: 3.0,
+    price: 3.5,
     image: coca_cola_zero_coffee_can,
   },
   {
@@ -62,19 +62,19 @@ const drinks = [
   {
     productId: "af1210d3-f3c5-4f6b-9416-9040331c8032",
     name: "water_mta_plastic",
-    price: 3.0,
+    price: 1.5,
     image: water_mta_plastic,
   },
   {
     productId: "2b8f3679-9c55-4081-95b9-3c0e116beaf1",
     name: "water_mta_glass",
-    price: 3.0,
+    price: 2.0,
     image: water_mta_glass,
   },
   {
     productId: "9fd5fec9-1771-457b-9e67-e44b9edb86bc",
     name: "cappy_pulpy_orange",
-    price: 3.0,
+    price: 3.5,
     image: cappy_pulpy_orange,
   },
 ];
