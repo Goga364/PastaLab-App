@@ -171,12 +171,14 @@ const pastaIngredients = {
         pastaSauce.pesto.productId,
         pastaSauce.alPomodoro.productId,
         pastaSauce.carbonara.productId,
+        pastaSauce.blueCheese.productId,
       ],
       [pastaType.penne.productId]: [
         pastaSauce.pesto.productId,
         pastaSauce.alPomodoro.productId,
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.carbonara.productId,
+        pastaSauce.blueCheese.productId,
       ],
       [pastaType.tagliatelle.productId]: [
         pastaSauce.pesto.productId,
@@ -184,6 +186,7 @@ const pastaIngredients = {
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.carbonara.productId,
         pastaSauce.bolognese.productId,
+        pastaSauce.blueCheese.productId,
       ],
       [pastaType.spaghetti.productId]: [
         pastaSauce.pesto.productId,
@@ -191,6 +194,7 @@ const pastaIngredients = {
         pastaSauce.mushroomTruffle.productId,
         pastaSauce.carbonara.productId,
         pastaSauce.bolognese.productId,
+        pastaSauce.blueCheese.productId,
       ],
     },
   },
@@ -271,10 +275,10 @@ const pastaIngredients = {
     price: 3.95,
     image: parmesan,
     combos: {
-      [pastaType.rigatoni.productId]: [pastaSauce.alPomodoro.productId],
-      [pastaType.penne.productId]: [pastaSauce.alPomodoro.productId],
-      [pastaType.tagliatelle.productId]: [pastaSauce.alPomodoro.productId],
-      [pastaType.spaghetti.productId]: [pastaSauce.alPomodoro.productId],
+      [pastaType.rigatoni.productId]: [pastaSauce.alPomodoro.productId, pastaSauce.blueCheese.productId],
+      [pastaType.penne.productId]: [pastaSauce.alPomodoro.productId, pastaSauce.blueCheese.productId],
+      [pastaType.tagliatelle.productId]: [pastaSauce.alPomodoro.productId, pastaSauce.blueCheese.productId],
+      [pastaType.spaghetti.productId]: [pastaSauce.alPomodoro.productId, pastaSauce.blueCheese.productId],
     },
   },
   pecorino: {
