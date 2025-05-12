@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { calculateCustom, calculateTotal } from "../utils/price";
 import Lottie from "lottie-react";
 import animation from "../assets/animations/ghost.json";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 
 export default function OrderSummary({ handleSubmit }) {
   const { cart, setCart } = useContext(CartContext);
@@ -41,7 +41,7 @@ export default function OrderSummary({ handleSubmit }) {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <Motion.div
         initial={{ x: "100%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: "100%", opacity: 0 }}
@@ -122,7 +122,7 @@ export default function OrderSummary({ handleSubmit }) {
             </button>
           </div>
         )}
-      </motion.div>
+      </Motion.div>
     </AnimatePresence>
   );
 }
