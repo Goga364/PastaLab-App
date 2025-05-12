@@ -39,7 +39,7 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
   return (
     <div className="flex gap-10 flex-col">
       <h1 className="py-4 text-start text-5xl">{title}</h1>
-      <div className="flex flex-row flex-wrap justify-start gap-10">
+      <div className="flex flex-row flex-wrap justify-start gap-5">
         {items?.map((product) => {
           let quantity;
 
@@ -61,10 +61,10 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
                 }`}
                 onClick={() => handleClick(product)}
               >
-                <img src={product.image} className="w-40 h-40 object-contain pt-2.5  shrink-0" />
-                <div className="h-[100%] pt-3">
+                <img src={product.image} className="w-40 h-40 object-contain pt-2  shrink-0" />
+                <div className="h-[100%] pt-1.5">
                   <h1 className="text-[18px] h-10">{t(product.name)}</h1>
-                  {!hideDescription && <div className="mt-2 pb-4 text-sm text-[#808080] h-18">{description}</div>}
+                  {!hideDescription && <div className="mt-2 pb-4 text-xs text-[#808080] h-22">{description}</div>}
                   <PriceTag price={product.price} />
                   <QuantityChanger setQuantity={setQuantity} currentQuantity={quantity} productId={product.productId} />
                 </div>
