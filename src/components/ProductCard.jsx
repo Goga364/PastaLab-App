@@ -30,7 +30,9 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
         comment: "",
         price: item.price,
         productId: item.productId,
+        name: item.name,
         type: "Product",
+        cartId: window.crypto.randomUUID(),
       },
     ]);
   };
@@ -42,8 +44,9 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
           let quantity;
 
           if (product.productId === "") {
-            const amount = cart.filter((item) => item.custom).length;
-            quantity = amount;
+            quantity = cart.reduce((sum, item) => {
+              return item.custom ? sum + item.amount : sum;
+            }, 0);
           } else {
             quantity = cart.find((item) => item.productId === product.productId)?.amount;
           }

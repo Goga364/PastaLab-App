@@ -23,20 +23,44 @@ const CustomPasta = ({ setCreatingCustom }) => {
       amount: 1,
       price: item.price,
       productId: item.productId,
+      name: item.name,
     }));
-    setCart([
-      ...cart,
-      {
-        amount: 1,
-        comment: "",
-        modifiers: modifiers,
-        price: selectedPastaType.price,
-        productId: selectedPastaType.productId,
-        type: "Product",
-        custom: true,
-        customOrderId: Date.now(),
-      },
-    ]);
+
+    const currentModifierIds = modifiers.map((mod) => mod.productId);
+
+    const existingItemIndex = cart.findIndex((item) => {
+      if (item.productId !== selectedPastaType.productId) return false;
+      if (item.modifiers.length !== currentModifierIds.length) return false;
+
+      const itemModifierIds = item.modifiers.map((mod) => String(mod.productId));
+      return currentModifierIds.every((id) => itemModifierIds.includes(id));
+    });
+
+    setCart((prev) => {
+      if (existingItemIndex !== -1) {
+        const updated = [...prev];
+        updated[existingItemIndex] = {
+          ...updated[existingItemIndex],
+          amount: updated[existingItemIndex].amount + 1,
+        };
+        return updated;
+      }
+
+      return [
+        ...prev,
+        {
+          amount: 1,
+          comment: "",
+          modifiers,
+          price: selectedPastaType.price,
+          productId: selectedPastaType.productId,
+          type: "Product",
+          custom: true,
+          cartId: window.crypto.randomUUID(),
+          name: selectedPastaType.name,
+        },
+      ];
+    });
     setCreatingCustom(false);
   };
 

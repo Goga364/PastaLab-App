@@ -3,7 +3,6 @@ import { useState } from "react";
 import OrderType from "./screens/OrderType";
 import ChooseOrder from "./screens/ChooseOrder";
 import LanguageSwitcher from "./components/LanguageSwitcher";
-import Footer from "./components/Footer";
 import { CartContext } from "./context/CartContext";
 import { useContext } from "react";
 import successAnimation from "./assets/animations/successAnimation.json";
@@ -12,6 +11,7 @@ import handleOrder from "./utils/handleOrder";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import CustomPasta from "./screens/CustomPasta";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import OrderSummary from "./components/OrderSummary";
 function App() {
   const [orderType, setOrderType] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -85,12 +85,14 @@ function App() {
     );
   }
 
+  const showSummary = !isSubmitting && orderType && !creatingCustom;
+
   return (
     <div className="w-full h-full relative">
       <button onClick={enterFullScreen} className="absolute left-0 h-10 w-10" />
       <LanguageSwitcher />
       {renderContent()}
-      <Footer show={orderType && cart.length && !creatingCustom} handleSubmit={handleSubmit} />
+      {showSummary && <OrderSummary handleSubmit={handleSubmit} />}
     </div>
   );
 }
