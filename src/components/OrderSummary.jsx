@@ -46,13 +46,13 @@ export default function OrderSummary({ handleSubmit }) {
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: "100%", opacity: 0 }}
         transition={{ type: "spring", stiffness: 150, damping: 30 }}
-        className="w-1/4 min-w-[350px] h-[504px] max-h-[80vh] bg-white fixed top-1/2 right-6 transform -translate-y-1/2 rounded-2xl shadow-xl border border-gray-200 flex flex-col overflow-hidden"
+        className="w-1/4 min-w-[330px] h-[504px] max-h-[80vh] bg-white fixed top-1/2 right-5 transform -translate-y-1/2 rounded-2xl shadow-xl border border-gray-200 flex flex-col overflow-hidden"
       >
-        <div className="px-6 py-4 border-b border-gray-200 sticky top-0 z-10">
+        <div className="py-4 border-b border-gray-200 sticky top-0 z-10">
           <h2 className="text-2xl font-bold text-[#11235A]">Your Order</h2>
         </div>
 
-        <div className="overflow-y-auto px-6 py-4 flex-1">
+        <div className="overflow-y-auto p-4 flex-1">
           {!showCartUI && (
             <div
               className={`flex flex-col items-center justify-evenly h-full text-center text-gray-500 px-4 transition-opacity duration-300 ${
@@ -74,9 +74,9 @@ export default function OrderSummary({ handleSubmit }) {
 
                 return (
                   <div key={item.cartId} className="mb-6 pb-4 border-b border-gray-100 last:border-b-0">
-                    <div className="flex justify-between items-start">
+                    <div className="flex justify-between items-start gap-2">
                       <div>
-                        <p className="font-semibold text-[#11235A] text-start">
+                        <p className="font-semibold text-md text-[#11235A] text-start">
                           {item.amount}x {t(item.name)}
                         </p>
                         {item?.modifiers?.length > 0 && (
@@ -114,12 +114,12 @@ export default function OrderSummary({ handleSubmit }) {
 
         {cart.length > 0 && showCartUI && (
           <div className="px-6 py-4 border-t border-gray-200 sticky bottom-0 bg-white z-10">
-            <button
-              className="w-full bg-[#FFB84C] hover:bg-[#ffc766] text-[#11235A] text-lg py-3 rounded-full transition"
+            <div
+              className="w-full bg-[#FFB84C] text-[#11235A] text-lg py-3 rounded-full transition font-extrabold"
               onClick={handleSubmit}
             >
               Order {totalItems} for ₾{totalPrice.toFixed(2)}
-            </button>
+            </div>
           </div>
         )}
       </Motion.div>

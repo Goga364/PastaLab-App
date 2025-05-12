@@ -14,7 +14,7 @@ const ChooseOrder = ({ setCreatingCustom }) => {
 
   return (
     <div className="bg-white w-screen min-h-screen flex flex-row justify-between">
-      <div className="w-3/4 p-15 flex flex-col gap-20 text-black">
+      <div className="w-[78%] px-10 py-15 flex flex-col gap-20 text-black">
         <ProductCard items={dishes} setCreatingCustom={setCreatingCustom} title={t("chooseDish")} />
         <ProductCard items={salads} setCreatingCustom={setCreatingCustom} title={t("chooseSalad")} />
         <ProductCard

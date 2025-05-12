@@ -96,7 +96,7 @@ const CustomPasta = ({ setCreatingCustom }) => {
   }, [selectedPastaType, selectedPastaSauce, filteredSauces, filteredIngredients]);
 
   return (
-    <div className="bg-white w-screen min-h-screen text-black p-15 gap-10 flex flex-col">
+    <div className="bg-white w-screen min-h-screen text-black px-10 py-15 gap-10 flex flex-col">
       <CustomPastaType value={selectedPastaType} setValue={setSelectedPastaType} />
       {selectedPastaType && (
         <CustomPastaSauce options={filteredSauces} value={selectedPastaSauce} setValue={setSelectedPastaSauce} />
