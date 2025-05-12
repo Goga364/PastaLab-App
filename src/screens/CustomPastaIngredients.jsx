@@ -29,6 +29,7 @@ const CustomPastaIngredients = ({ options, value, setValue }) => {
                   handleClickIngredient({
                     productId: ingredient.productId,
                     price: ingredient.price,
+                    name: ingredient.name,
                   })
                 }
               >

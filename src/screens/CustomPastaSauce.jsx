@@ -18,7 +18,7 @@ const CustomPastaSauce = ({ options, value, setValue }) => {
                 className={`px-3 pb-3  h-91 w-55  rounded-4xl flex justify-center flex-col items-center relative shadow-[0px_0px_64px_0px_#E7EAF3] border  ${
                   isSelected ? "border-[#96dbf5] bg-[#edfcfe]" : "border-white"
                 }`}
-                onClick={() => setValue({ productId: sauce.productId, price: sauce.price })}
+                onClick={() => setValue({ productId: sauce.productId, price: sauce.price, name: sauce.name })}
               >
                 {isSelected && (
                   <div className="w-[30px] h-[30px] absolute bottom-2 left-1/2 -translate-x-1/2">

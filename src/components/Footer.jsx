@@ -1,23 +1,14 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { motion as Motion, AnimatePresence } from "framer-motion";
+import { calculateTotal } from "../utils/price";
 
 const Footer = ({ show, handleSubmit }) => {
   const { cart } = useContext(CartContext);
 
   const itemN = cart.reduce((sum, item) => sum + item.amount, 0);
 
-  const sumWithInitial = cart
-    .reduce((acc, currentValue) => {
-      let price = 0;
-      if (currentValue.modifiers) {
-        price = currentValue.modifiers.reduce((acc, curr) => acc + Number(curr.price), 0) + Number(currentValue.price);
-      } else {
-        price = Number(currentValue.price);
-      }
-      return acc + currentValue.amount * price;
-    }, 0)
-    .toFixed(2);
+  const totalPrice = calculateTotal(cart);
 
   return (
     <>
@@ -45,7 +36,7 @@ const Footer = ({ show, handleSubmit }) => {
             </div>
 
             <button className="text-white px-1 py-3 rounded-[100px] text-xl flex flex-row gap-5 font-bold">
-              Total ₾{sumWithInitial}
+              Total ₾{totalPrice}
             </button>
           </Motion.div>
         )}
