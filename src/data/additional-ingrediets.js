@@ -11,7 +11,7 @@ import basil from "../assets/ingredients/baziliki.png";
 import bacon from "../assets/ingredients/bacon.png";
 import mushroom from "../assets/ingredients/soko.png";
 import nagebi from "../assets/ingredients/nagebi.png";
-
+import kimchi from "../assets/ingredients/kimchis_sousi.png";
 const pastaIngredients = {
   olive: {
     price: 1.45,
@@ -58,12 +58,8 @@ const pastaIngredients = {
     productId: "7f84182b-ad22-49f7-99da-8ecfac1f1bc3",
     image: nagebi,
     combos: {
-      [pastaType.tagliatelle.productId]: [
-        pastaSauce.bolognese.productId,
-      ],
-      [pastaType.spaghetti.productId]: [
-        pastaSauce.bolognese.productId, 
-      ],
+      [pastaType.tagliatelle.productId]: [pastaSauce.bolognese.productId],
+      [pastaType.spaghetti.productId]: [pastaSauce.bolognese.productId],
     },
   },
   capers: {
@@ -302,6 +298,18 @@ const pastaIngredients = {
       [pastaType.penne.productId]: [pastaSauce.mushroomTruffle.productId],
       [pastaType.tagliatelle.productId]: [pastaSauce.mushroomTruffle.productId],
       [pastaType.spaghetti.productId]: [pastaSauce.mushroomTruffle.productId],
+    },
+  },
+  kimchi: {
+    name: "kimchis sousi",
+    productId: "e0318de0-d2ca-4adb-b800-f3efe3b4b91b",
+    price: 5.45,
+    image: kimchi,
+    combos: {
+      [pastaType.rigatoni.productId]: [pastaSauce.carbonara.productId],
+      [pastaType.penne.productId]: [pastaSauce.carbonara.productId],
+      [pastaType.tagliatelle.productId]: [pastaSauce.carbonara.productId],
+      [pastaType.spaghetti.productId]: [pastaSauce.carbonara.productId],
     },
   },
 };
