@@ -8,7 +8,7 @@ const QuantityChanger = ({ setQuantity, currentQuantity, productId }) => {
         e.stopPropagation();
       }}
     >
-      <span
+      <button
         onClick={(e) => {
           if (productId) {
             e.stopPropagation();
@@ -18,9 +18,9 @@ const QuantityChanger = ({ setQuantity, currentQuantity, productId }) => {
         className="pr-2 pl-3 py-1"
       >
         {productId && "-"}
-      </span>
+      </button>
       <div>{currentQuantity}</div>
-      <span
+      <button
         onClick={() => {
           if (productId) {
             setQuantity(productId, currentQuantity + 1);
@@ -29,7 +29,7 @@ const QuantityChanger = ({ setQuantity, currentQuantity, productId }) => {
         className="pl-2 pr-3 py-1"
       >
         {productId && "+"}
-      </span>
+      </button>
     </div>
   );
 };
