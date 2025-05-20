@@ -1,4 +1,4 @@
-const QuantityChanger = ({ setQuantity, currentQuantity, productId }) => {
+const QuantityChanger = ({ setQuantity, currentQuantity, productId, showControls = true }) => {
   if (!currentQuantity) return <div className="h-[32px] w-full" />;
   return (
     <div
@@ -17,7 +17,7 @@ const QuantityChanger = ({ setQuantity, currentQuantity, productId }) => {
         }}
         className="pr-2 pl-3 py-1"
       >
-        {productId && "-"}
+        {productId && showControls && "-"}
       </button>
       <div>{currentQuantity}</div>
       <button
@@ -28,7 +28,7 @@ const QuantityChanger = ({ setQuantity, currentQuantity, productId }) => {
         }}
         className="pl-2 pr-3 py-1"
       >
-        {productId && "+"}
+        {productId && showControls && "+"}
       </button>
     </div>
   );

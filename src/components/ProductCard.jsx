@@ -1,13 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { useTranslation } from "react-i18next";
 import PriceTag from "./PriceTag";
 import QuantityChanger from "./QuantityChanger";
 import AnimationWrapper from "./AnimationWrapper";
+import DishExtras from "./DishExtras";
 
 const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
   const { cart, setCart } = useContext(CartContext);
   const { t, i18n } = useTranslation();
+
+  const [selectedDish, setSelectedDish] = useState(null);
+
   const setQuantity = (id, n) => {
     if (n <= 0) {
       setCart((prev) => prev.filter((item) => item.productId !== id));
@@ -18,6 +22,8 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
 
   const handleClick = (item) => {
     if (!item.productId) return setCreatingCustom(true);
+
+    if (item?.extras?.length) return setSelectedDish(item);
 
     const cartItem = cart.find((cartItem) => cartItem.productId === item.productId);
 
@@ -41,15 +47,10 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
       <h1 className="py-4 text-start text-5xl">{title}</h1>
       <div className="flex flex-row flex-wrap justify-start gap-5">
         {items?.map((product) => {
-          let quantity;
-
-          if (product.productId === "") {
-            quantity = cart.reduce((sum, item) => {
-              return item.custom ? sum + item.amount : sum;
-            }, 0);
-          } else {
-            quantity = cart.find((item) => item.productId === product.productId)?.amount;
-          }
+          const quantity = cart.reduce((sum, item) => {
+            const isMatch = !product.productId ? item.custom : item.productId === product.productId;
+            return isMatch ? sum + item.amount : sum;
+          }, 0);
           const description = i18n.exists(`${product.name}-description`)
             ? t(`${product.name}-description`)
             : "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
@@ -66,12 +67,18 @@ const ProductCard = ({ items, setCreatingCustom, title, hideDescription }) => {
                   <h1 className="text-[18px] h-10">{t(product.name)}</h1>
                   {!hideDescription && <div className="mt-2 pb-4 text-xs text-[#808080] h-22">{description}</div>}
                   <PriceTag price={product.price} />
-                  <QuantityChanger setQuantity={setQuantity} currentQuantity={quantity} productId={product.productId} />
+                  <QuantityChanger
+                    setQuantity={setQuantity}
+                    currentQuantity={quantity}
+                    productId={product.productId}
+                    showControls={!product?.extras?.length}
+                  />
                 </div>
               </div>
             </AnimationWrapper>
           );
         })}
+        <DishExtras selectedDish={selectedDish} onClose={() => setSelectedDish(null)} />
       </div>
     </div>
   );

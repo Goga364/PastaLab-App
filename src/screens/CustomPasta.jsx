@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import CustomPastaType from "./CustomPastaType";
 import CustomPastaSauce from "./CustomPastaSauce";
 import CustomPastaIngredients from "./CustomPastaIngredients";
@@ -6,10 +6,14 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import pastaSauce from "../data/sauce";
 import pastaIngredients from "../data/additional-ingrediets";
+
 const CustomPasta = ({ setCreatingCustom }) => {
   const [selectedPastaType, setSelectedPastaType] = useState();
   const [selectedPastaSauce, setSelectedPastaSauce] = useState();
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  const sauceRef = useRef(null);
+  const ingredientsRef = useRef(null);
 
   const { cart, setCart } = useContext(CartContext);
 
@@ -95,18 +99,35 @@ const CustomPasta = ({ setCreatingCustom }) => {
     });
   }, [selectedPastaType, selectedPastaSauce, filteredSauces, filteredIngredients]);
 
+  useEffect(() => {
+    if (selectedPastaType && sauceRef.current) {
+      sauceRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedPastaType]);
+
+  useEffect(() => {
+    if (selectedPastaSauce && ingredientsRef.current) {
+      ingredientsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedPastaSauce]);
+
   return (
     <div className="bg-white w-screen min-h-screen text-black px-10 py-15 gap-10 flex flex-col">
       <CustomPastaType value={selectedPastaType} setValue={setSelectedPastaType} />
       {selectedPastaType && (
-        <CustomPastaSauce options={filteredSauces} value={selectedPastaSauce} setValue={setSelectedPastaSauce} />
+        <div ref={sauceRef}>
+          <CustomPastaSauce options={filteredSauces} value={selectedPastaSauce} setValue={setSelectedPastaSauce} />
+        </div>
       )}
+
       {selectedPastaSauce && (
-        <CustomPastaIngredients
-          options={filteredIngredients}
-          value={selectedIngredients}
-          setValue={setSelectedIngredients}
-        />
+        <div ref={ingredientsRef}>
+          <CustomPastaIngredients
+            options={filteredIngredients}
+            value={selectedIngredients}
+            setValue={setSelectedIngredients}
+          />
+        </div>
       )}
       {selectedPastaSauce && (
         <div className="flex gap-10 text-2xl items-center">
