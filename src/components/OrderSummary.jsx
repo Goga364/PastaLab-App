@@ -82,7 +82,10 @@ export default function OrderSummary({ handleSubmit }) {
                         {item?.modifiers?.length > 0 && (
                           <ul className="text-sm text-gray-500 mt-1 list-disc list-inside">
                             {item.modifiers.map((mod, i) => (
-                              <li key={mod.productId + item.cartId} className={`text-start ${i !== 0 && "pl-2"}`}>
+                              <li
+                                key={mod.productId + item.cartId}
+                                className={`text-start ${i !== 0 && item?.custom && "pl-2"}`}
+                              >
                                 {t(mod.name)}
                               </li>
                             ))}
