@@ -12,7 +12,7 @@ const pastaSauce = {
   pesto: {
     productId: "05271bb0-c018-4b5b-83c7-cef18eaebe2a",
     name: "pesto sauce",
-    price: 11.95,
+    price: 9.55,
     image: pesto,
     forPasta: [
       pastaType.rigatoni.productId,
@@ -24,7 +24,7 @@ const pastaSauce = {
   cacioPepe: {
     productId: "06040f59-9d1e-47c4-8621-922b21bbfa64",
     name: "kachio pepe",
-    price: 12.95,
+    price: 10.35,
     image: cacioPepe,
     forPasta: [
       pastaType.rigatoni.productId,
@@ -36,7 +36,7 @@ const pastaSauce = {
   alPomodoro: {
     productId: "85bc1b75-13c5-4d2d-aa23-4c2d635ff159",
     name: "alpomidoro",
-    price: 10.95,
+    price: 8.75,
     image: alPomodoro,
     forPasta: [
       pastaType.rigatoni.productId,
@@ -48,7 +48,7 @@ const pastaSauce = {
   carbonara: {
     productId: "8ec88c04-ee00-4a6a-8c9c-a4acedf4e0b7",
     name: "carbonara",
-    price: 11.95,
+    price: 9.55,
     image: carbonara,
     forPasta: [
       pastaType.rigatoni.productId,
@@ -60,8 +60,7 @@ const pastaSauce = {
   blueCheese: {
     productId: "ec63ff7c-9059-4faf-94a5-14d750193447",
     name: "lurji kveli",
-    price: 12.45,
-    // TODO: blue cheese sauce
+    price: 9.95,
     image: blueCheese,
     forPasta: [
       pastaType.rigatoni.productId,
@@ -73,21 +72,21 @@ const pastaSauce = {
   mushroomTruffle: {
     productId: "2611f301-c91c-41fb-b3d2-0588e1f346c0",
     name: "tirufelis sousi",
-    price: 14.95,
+    price: 11.95,
     image: mushroomTruffle,
     forPasta: [pastaType.penne.productId, pastaType.tagliatelle.productId, pastaType.spaghetti.productId],
   },
   bolognese: {
     productId: "8d5998a8-834c-46a4-9c8c-0e30c6f76936",
     name: "boloneze sousi",
-    price: 14.45,
+    price: 11.55,
     image: boloneze,
     forPasta: [pastaType.tagliatelle.productId, pastaType.spaghetti.productId],
   },
   seafood: {
     productId: "3a6582d2-ff98-454f-ba7c-8ce2fc9aa026",
     name: "zgvisproduktebi",
-    price: 22.45,
+    price: 17.95,
     image: seaFood,
     forPasta: [pastaType.tagliatelle.productId, pastaType.spaghetti.productId],
   },
