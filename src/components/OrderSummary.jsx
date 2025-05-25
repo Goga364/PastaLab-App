@@ -17,13 +17,17 @@ export default function OrderSummary({ handleSubmit }) {
   const totalPrice = calculateTotal(cart);
 
   useEffect(() => {
+    let timeoutId;
     if (cart.length > 0) {
       setHideAnimation(true);
-      setTimeout(() => setShowCartUI(true), 300);
+      timeoutId = setTimeout(() => setShowCartUI(true), 300);
     } else {
       setShowCartUI(false);
       setHideAnimation(false);
     }
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [cart]);
 
   const handleClick = (actionType, id) => {
