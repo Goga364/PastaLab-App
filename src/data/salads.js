@@ -1,6 +1,6 @@
-import caprese from "../assets/salads/kapreze.png";
-import fresh from "../assets/salads/fresh_salad.png";
-import salmon from "../assets/salads/oraguli_salad.png";
+import caprese from "../../public/salads/kapreze.png";
+import fresh from "../../public/salads/fresh_salad.png";
+import salmon from "../../public/salads/oraguli_salad.png";
 
 const salads = [
   {

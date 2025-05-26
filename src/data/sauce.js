@@ -1,12 +1,12 @@
 import pastaType from "./pasta-type";
-import pesto from "../assets/sauces/pesto.png";
-import cacioPepe from "../assets/sauces/kachio_pepe.png";
-import alPomodoro from "../assets/sauces/al_pomidoro.png";
-import carbonara from "../assets/sauces/carbonara.png";
-import blueCheese from "../assets/sauces/lurji_kveli.png";
-import mushroomTruffle from "../assets/sauces/soko.png";
-import boloneze from "../assets/sauces/boloneze.png";
-import seaFood from "../assets/sauces/zgvis_produqtebis.png";
+import pesto from "../../public/sauces/pesto.png";
+import cacioPepe from "../../public/sauces/kachio_pepe.png";
+import alPomodoro from "../../public/sauces/al_pomidoro.png";
+import carbonara from "../../public/sauces/carbonara.png";
+import blueCheese from "../../public/sauces/lurji_kveli.png";
+import mushroomTruffle from "../../public/sauces/soko.png";
+import boloneze from "../../public/sauces/boloneze.png";
+import seaFood from "../../public/sauces/zgvis_produqtebis.png";
 
 const pastaSauce = {
   pesto: {

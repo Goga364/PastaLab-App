@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import logoImage from "../assets/pasta_lab_bg.png";
+import logoImage from "../../public/pasta_lab_bg.png";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
