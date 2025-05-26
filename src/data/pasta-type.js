@@ -1,7 +1,7 @@
-import rigatoni from "../../public/pasta-types/rigato.png";
-import pene from "../../public/pasta-types/pene.png";
-import spagetti from "../../public/pasta-types/spagetti.png";
-import taliatele from "../../public/pasta-types/taliatele.png";
+import rigatoni from "../assets/pasta-types/rigato.png";
+import pene from "../assets/pasta-types/pene.png";
+import spagetti from "../assets/pasta-types/spagetti.png";
+import taliatele from "../assets/pasta-types/taliatele.png";
 
 const pastaType = {
   rigatoni: {
